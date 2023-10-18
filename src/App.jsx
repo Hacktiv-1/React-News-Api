@@ -1,9 +1,20 @@
+import { Route, Routes } from "react-router-dom";
+import ProgrammingPage from "./pages/programmingPage";
+import HomePage from "./pages/homePage";
+import CovidPage from "./pages/CovidPage";
+import BookmarkPage from "./pages/BookmarkPage";
+import SearchPage from "./pages/SearchPage";
+
 function App() {
   return (
     <>
-      <div className="flex justify-center items-center min-h-screen">
-        <h1 className="text-4xl font-bold">Base Structure</h1>
-      </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/programming" element={<ProgrammingPage />} />
+        <Route path="/covid" element={<CovidPage />} />
+        <Route path="/bookmark" element={<BookmarkPage />} />
+        <Route path="/search" element={<SearchPage />} />
+      </Routes>
     </>
   );
 }
