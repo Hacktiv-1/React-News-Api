@@ -1,17 +1,22 @@
-import { createSlice } from '@reduxjs/toolkit';
+// bookmarksSlice.js
+
+import { createSlice } from "@reduxjs/toolkit";
 
 const bookmarksSlice = createSlice({
-  name: 'bookmarks',
+  name: "bookmarks",
   initialState: [],
   reducers: {
     toggleBookmark: (state, action) => {
-      const index = state.findIndex((item) => item === action.payload);
+      const newsUrl = action.payload;
+
+      // Check if the news URL is already in bookmarks
+      const index = state.indexOf(newsUrl);
+
+      // If it's already bookmarked, remove it; otherwise, add it
       if (index !== -1) {
-        // If already bookmarked, remove it
         state.splice(index, 1);
       } else {
-        // If not bookmarked, add it
-        state.push(action.payload);
+        state.push(newsUrl);
       }
     },
   },
