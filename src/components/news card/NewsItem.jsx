@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import NewsItemHead from "./NewsItemHead";
 import NewsItemBody from "./NewsItemBody";
 import NewsItemActions from "./NewsItemActions";
@@ -12,8 +12,6 @@ function NewsItem({
   url,
   urlToImage,
   source,
-  onBookmark,
-  isBookmarked
 }) {
   return (
     <>
@@ -30,7 +28,7 @@ function NewsItem({
             title={title}
             url={url}
           />
-          <NewsItemActions url={url} onBookmark={onBookmark} isBookmarked={isBookmarked}/>
+          <NewsItemActions url={url} />
         </div>
       </div>
     </>
