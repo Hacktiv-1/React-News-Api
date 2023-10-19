@@ -3,6 +3,7 @@ import { getNewsEndpointForLastMonth } from "../utils/formatDateApi";
 import { apiKey } from "../utils/apiKey";
 import Loading from "../components/loading/Loading";
 import NewsList from "../components/news card/NewsList";
+import NewsWrapper from "../components/news card/NewsWrapper";
 
 function CovidPage() {
   const keyword = "covid";
@@ -24,15 +25,11 @@ function CovidPage() {
   return (
     <>
       {isLoading ? (
-        <>
-          <Loading />
-        </>
+        <Loading />
       ) : (
-        <>
-          <div className="container mx-auto gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <NewsList news={news} />
-          </div>
-        </>
+        <NewsWrapper>
+          <NewsList news={news} />
+        </NewsWrapper>
       )}
     </>
   );

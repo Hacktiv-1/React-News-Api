@@ -12,7 +12,7 @@ function getNewsEndpointForLastMonth(keyword, apiKey) {
   const fromDate = formatDate(lastMonthDate);
   const toDate = formatDate(currentDate);
 
-  const apiUrl = `https://newsapi.org/v2/everything?q=${keyword}&from=${fromDate}&to=${toDate}&sortBy=popularity&apiKey=${apiKey}`;
+  const apiUrl = `https://newsapi.org/v2/everything?q=${keyword}&from=${fromDate}&to=${toDate}&apiKey=${apiKey}`;
 
   return apiUrl;
 }

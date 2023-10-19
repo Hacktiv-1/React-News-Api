@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { apiKey } from "../utils/apiKey";
 import Loading from "../components/loading/Loading";
 import NewsList from "../components/news card/NewsList";
+import NewsWrapper from "../components/news card/NewsWrapper";
 
 function HomePage() {
   const [news, setNews] = useState([]);
@@ -22,15 +23,11 @@ function HomePage() {
   return (
     <>
       {isLoading ? (
-        <>
-          <Loading />
-        </>
+        <Loading />
       ) : (
-        <>
-          <div className="container mx-auto gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <NewsList news={news} />
-          </div>
-        </>
+        <NewsWrapper>
+          <NewsList news={news} />
+        </NewsWrapper>
       )}
     </>
   );
