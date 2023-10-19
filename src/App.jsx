@@ -1,13 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import ProgrammingPage from "./pages/programmingPage";
-import HomePage from "./pages/homePage";
+import HomePage from "./pages/HomePage";
+import ProgrammingPage from "./pages/ProgrammingPage";
 import CovidPage from "./pages/CovidPage";
 import BookmarkPage from "./pages/BookmarkPage";
 import SearchPage from "./pages/SearchPage";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
   return (
     <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/programming" element={<ProgrammingPage />} />

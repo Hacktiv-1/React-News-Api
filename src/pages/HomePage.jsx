@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getNewsEndpointForLastMonth } from "../utils/formatDateApi";
 import { apiKey } from "../utils/apiKey";
-import NewsApp from "../components/news card/NewsApp";
 import Loading from "../components/loading/Loading";
+import NewsList from "../components/news card/NewsList";
 
 function HomePage() {
   const [news, setNews] = useState([]);
@@ -29,7 +28,7 @@ function HomePage() {
       ) : (
         <>
           <div className="container mx-auto gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <NewsApp news={news} />
+            <NewsList news={news} />
           </div>
         </>
       )}
