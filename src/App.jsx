@@ -5,6 +5,7 @@ import CovidPage from "./pages/CovidPage";
 import BookmarkPage from "./pages/BookmarkPage";
 import SearchPage from "./pages/SearchPage";
 import Navbar from "./components/navbar/Navbar";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   return (
@@ -12,10 +13,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<ErrorPage />} />
         <Route path="/programming" element={<ProgrammingPage />} />
         <Route path="/covid" element={<CovidPage />} />
         <Route path="/bookmark" element={<BookmarkPage />} />
-        <Route path="/search" element={<SearchPage />} />
+        <Route path="/search/:keyword" element={<SearchPage />} />
       </Routes>
     </>
   );
