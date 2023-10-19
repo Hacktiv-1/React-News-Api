@@ -8,8 +8,8 @@ function BookmarkPage() {
   const bookmarkedNews = useSelector((state) => state.news.bookmarkedNews);
 
   return (
-    <div className="container mx-auto">
-      <h2>Daftar Bookmark:</h2>
+    <div className="container mx-auto ">
+      <h1 className="text-2xl font-bold p-4">Daftar Bookmark:</h1>
       {bookmarkedNews.length === 0 ? (
         <div className="flex items-center justify-center h-screen">
           <p>No bookmarks yet.</p>
