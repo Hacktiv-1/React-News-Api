@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React  from "react";
 import NewsItemHead from "./NewsItemHead";
 import NewsItemBody from "./NewsItemBody";
 import NewsItemActions from "./NewsItemActions";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleBookmark } from "../../store/slices/bookmarksSlice";
 import {
   addBookmarkedNews,
   removeBookmarkedNews,
@@ -20,14 +19,16 @@ function NewsItem({
   source,
 }) {
   const dispatch = useDispatch();
-  const isBookmarked = useSelector((state) => state.bookmarks.includes(url));
-
+  const getIsBookmark = useSelector((state) => state.news.bookmarkedNews);
+  const isNewsBookmarked = getIsBookmark.some(
+    (news) => news.url === url && news.isBookmarked
+  );
   const onBookmarkHandler = () => {
-    if (isBookmarked) {
-      // If already bookmarked, remove from the store
+    if (isNewsBookmarked) {
+      // News is already saved, so remove it from bookmarks
       dispatch(removeBookmarkedNews(url));
     } else {
-      // If not bookmarked, add to the store
+      // News is not saved, so add it to bookmarks
       dispatch(
         addBookmarkedNews({
           author,
@@ -38,13 +39,12 @@ function NewsItem({
           url,
           urlToImage,
           source,
+          isBookmarked: true,
         })
       );
     }
-
-    // Toggle bookmark
-    dispatch(toggleBookmark(url));
   };
+
   return (
     <>
       <div className="m-4  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 bg-white flex flex-col justify-between overflow-hidden">
@@ -63,7 +63,7 @@ function NewsItem({
           <NewsItemActions
             url={url}
             onBookmark={onBookmarkHandler}
-            isBookmarked={isBookmarked}
+            isBookmarked={isNewsBookmarked}
           />
         </div>
       </div>
