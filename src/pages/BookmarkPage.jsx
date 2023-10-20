@@ -1,29 +1,23 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import NewsList from "../components/news card/NewsList";
+import NewsWrapper from "../components/news card/NewsWrapper";
 
 function BookmarkPage() {
-  const bookmarks = useSelector((state) => state.bookmarks);
+  // Updated to use the news reducer for bookmarked news
+  const bookmarkedNews = useSelector((state) => state.news.bookmarkedNews);
 
   return (
-    <div className="BookmarkPage p-6 bg-gray-200 rounded-lg">
-      <h2 className="text-2xl font-bold text-gray-700 mb-4">Bookmarked News</h2>
-      {bookmarks.length === 0 ? (
-        <p className="text-lg text-gray-600">No bookmarks yet.</p>
+    <div className="container mx-auto ">
+      <h1 className="text-2xl font-bold p-4">Daftar Bookmark:</h1>
+      {bookmarkedNews.length === 0 ? (
+        <div className="flex items-center justify-center h-screen">
+          <p>No bookmarks yet.</p>
+        </div>
       ) : (
-        <ul className="list-disc pl-4">
-          {bookmarks.map((bookmark, index) => (
-            <li key={index}>
-              <a
-                href={bookmark}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
-              >
-                {bookmark}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <NewsWrapper>
+          <NewsList news={bookmarkedNews} />
+        </NewsWrapper>
       )}
     </div>
   );

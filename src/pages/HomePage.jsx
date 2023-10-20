@@ -2,17 +2,24 @@ import React, { useEffect, useState } from "react";
 import { apiKey } from "../utils/apiKey";
 import Loading from "../components/loading/Loading";
 import NewsList from "../components/news card/NewsList";
+import NewsWrapper from "../components/news card/NewsWrapper";
 
 function HomePage() {
   const [news, setNews] = useState([]);
-  const [isLoading, setIsloading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const endpoint = `https://newsapi.org/v2/top-headlines?country=id&apiKey=${apiKey}`;
 
   const fetchData = async () => {
-    const res = await fetch(endpoint);
-    const data = await res.json();
-    setNews(data.articles);
-    setIsloading(false);
+    setIsLoading(true); 
+    try {
+      const res = await fetch(endpoint);
+      const data = await res.json();
+      setNews(data.articles);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setIsLoading(false); 
+    }
   };
 
   useEffect(() => {
@@ -22,15 +29,11 @@ function HomePage() {
   return (
     <>
       {isLoading ? (
-        <>
-          <Loading />
-        </>
+        <Loading />
       ) : (
-        <>
-          <div className="container mx-auto gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <NewsList news={news} />
-          </div>
-        </>
+        <NewsWrapper>
+          <NewsList news={news} />
+        </NewsWrapper>
       )}
     </>
   );
