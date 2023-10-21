@@ -1,23 +1,61 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
+import Search from "./Search";
+import NavItem from "./NavItem";
 
 function Navbar() {
-  const [input, setInput] = useState("");
-  let navigate = useNavigate();
-
-  const handleInputChange = (e) => {
-    setInput(e.target.value);
-  };
-
-  const handleSearch = () => {
-    // navigate to the search page with the input value
-    navigate(`/search/${input}`);
-    setInput("");
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOpen = () => {
+    setIsOpen(!isOpen);
+    // console.log(open);
   };
 
   return (
     <>
-      <div className=" bg-slate-400">
+      <header className="bg-yellow-500">
+        <nav className="w-full mx-auto px-4 sm:px-6 lg:px-8 container">
+          <div className="flex items-center justify-between md:justify-between h-16">
+            <div className="flex items-center">
+              <div className="md:hidden mr-1">
+                <button
+                  className="inline-flex items-center justify-center p-2 rounded-md text-slate-800 hover:text-slate-800 focus:outline-none"
+                  onClick={handleOpen}
+                >
+                  {isOpen ? <FaTimes /> : <FaBars />}
+                </button>
+              </div>
+              <div className="flex">
+                <Link to={"/"}>
+                  <h1 className="text-slate-800 font-semibold text-xl">News</h1>
+                </Link>
+              </div>
+            </div>
+            <div className="hidden md:block">
+              <div className="ml-4 flex items-center space-x-4">
+                <NavItem
+                  style={
+                    "text-slate-800 hover:underline transition duration-500"
+                  }
+                />
+              </div>
+            </div>
+            <div className="sm:ml-10">
+              <Search />
+            </div>
+          </div>
+        </nav>
+        {isOpen && (
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-yellow-300 block">
+            <NavItem
+              style={
+                "text-slate-800 hover:underline transition duration-500 block"
+              }
+            />
+          </div>
+        )}
+      </header>
+      {/* <div className=" bg-slate-400">
         <div className="flex flex-col sm:flex-row container mx-auto items-center justify-between p-4 space-y-4 sm:space-y-0">
           <div className="space-x-4 font-bold text-slate-800 text-md">
             <Link to="/">Indonesia</Link>
@@ -73,7 +111,7 @@ function Navbar() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
