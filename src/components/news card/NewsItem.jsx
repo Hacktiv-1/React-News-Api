@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import NewsItemHead from "./NewsItemHead";
 import NewsItemBody from "./NewsItemBody";
 import NewsItemActions from "./NewsItemActions";
@@ -20,9 +20,7 @@ function NewsItem({
 }) {
   const dispatch = useDispatch();
   const getIsBookmark = useSelector((state) => state.news.bookmarkedNews);
-  const isNewsBookmarked = getIsBookmark.some(
-    (news) => news.url === url && news.isBookmarked
-  );
+  const isNewsBookmarked = getIsBookmark.some((news) => news.url === url);
   const onBookmarkHandler = () => {
     if (isNewsBookmarked) {
       // News is already saved, so remove it from bookmarks
@@ -39,7 +37,6 @@ function NewsItem({
           url,
           urlToImage,
           source,
-          isBookmarked: true,
         })
       );
     }
