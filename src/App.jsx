@@ -6,11 +6,13 @@ import BookmarkPage from "./pages/BookmarkPage";
 import SearchPage from "./pages/SearchPage";
 import Navbar from "./components/navbar/Navbar";
 import ErrorPage from "./pages/ErrorPage";
-
+import FooterText from "./components/footer/footertext";
+import TitlePage from "./components/title/Titletext";
 function App() {
   return (
     <>
       <Navbar />
+      <TitlePage />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<ErrorPage />} />
@@ -19,6 +21,7 @@ function App() {
         <Route path="/bookmark" element={<BookmarkPage />} />
         <Route path="/search/:keyword" element={<SearchPage />} />
       </Routes>
+      <FooterText />
     </>
   );
 }
