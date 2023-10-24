@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 function Search() {
   const [input, setInput] = useState("");
@@ -29,15 +29,17 @@ function Search() {
             handleSearch();
           }
         }}
-        className="w-full p-1 rounded-lg bg-slate-300 focus:bg-white"
+        className="w-full rounded-md px-2 py-2.5 pe-10 shadow-sm sm:text-sm"
       />
-      <button className="absolute top-1 end-2" onClick={handleSearch}>
-        <FontAwesomeIcon
-          icon="fa-solid fa-magnifying-glass"
-          color="black"
-          size="xl"
-        />
-      </button>
+      <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
+        <button
+          type="button"
+          className="text-gray-600 hover:text-gray-700"
+          onClick={handleSearch}
+        >
+          <FaMagnifyingGlass />
+        </button>
+      </span>
     </div>
   );
 }

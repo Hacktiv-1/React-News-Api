@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-function NavItem({ style }) {
+function NavItem({ onClick }) {
   const navItems = [
     { path: "/", title: "Indonesia" },
     { path: "/programming", title: "Programming" },
@@ -11,6 +11,7 @@ function NavItem({ style }) {
     <>
       {navItems.map((item, index) => (
         <NavLink
+          onClick={onClick}
           key={index}
           to={item.path}
           className={({ isActive }) =>

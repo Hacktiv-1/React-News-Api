@@ -44,12 +44,12 @@ function NewsItem({
 
   return (
     <>
-      <div className="m-4  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 bg-white flex flex-col justify-between overflow-hidden">
-        <div className="h-1/2">
+      <div className="m-4  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 bg-white flex flex-col overflow-hidden">
+        <div className="">
           <NewsItemHead urlToImage={urlToImage} />
         </div>
 
-        <div className="p-5 flex flex-col justify-between ">
+        <div className="p-5 h-full flex flex-col justify-between">
           <NewsItemBody
             author={author}
             publishedAt={publishedAt}

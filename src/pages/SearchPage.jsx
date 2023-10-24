@@ -13,7 +13,7 @@ function SearchPage() {
   const endpoint = getNewsEndpointForLastMonth(keyword, apiKey);
 
   const fetchData = async () => {
-    setIsLoading(true); 
+    setIsLoading(true);
     try {
       const res = await fetch(endpoint);
       const data = await res.json();
@@ -21,7 +21,7 @@ function SearchPage() {
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
-      setIsLoading(false); 
+      setIsLoading(false);
     }
   };
 
@@ -32,15 +32,21 @@ function SearchPage() {
   return (
     <>
       <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold">Search for : {keyword}</h1>
+        <h1 className="text-2xl font-semibold">Searching for : {keyword}</h1>
       </div>
       {isLoading ? (
         <Loading />
       ) : (
         <>
-          <NewsWrapper>
-            <NewsList news={news} />
-          </NewsWrapper>
+          {news.length === 0 ? (
+            <div className="text-center flex items-center justify-center my-32 font-semibold">
+              There is no result
+            </div>
+          ) : (
+            <NewsWrapper>
+              <NewsList news={news} />
+            </NewsWrapper>
+          )}
         </>
       )}
     </>
