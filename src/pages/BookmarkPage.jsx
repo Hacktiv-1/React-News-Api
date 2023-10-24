@@ -9,10 +9,10 @@ function BookmarkPage() {
 
   return (
     <div className="container mx-auto ">
-      <h1 className="text-2xl font-bold p-4">Daftar Bookmark:</h1>
+      <h1 className="text-2xl font-semibold p-4">Daftar Bookmark:</h1>
       {bookmarkedNews.length === 0 ? (
-        <div className="flex items-center justify-center h-screen">
-          <p>No bookmarks yet.</p>
+        <div className="text-center flex items-center justify-center my-32 font-semibold">
+          There is bookmarked news
         </div>
       ) : (
         <NewsWrapper>

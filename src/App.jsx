@@ -6,11 +6,6 @@ import BookmarkPage from "./pages/BookmarkPage";
 import SearchPage from "./pages/SearchPage";
 import Navbar from "./components/navbar/Navbar";
 import ErrorPage from "./pages/ErrorPage";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { far } from "@fortawesome/free-regular-svg-icons";
-import { library } from "@fortawesome/fontawesome-svg-core";
-library.add(fab, fas, far);
 
 function App() {
   return (

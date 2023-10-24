@@ -14,12 +14,12 @@ function Navbar() {
   return (
     <>
       <header className="bg-yellow-500">
-        <nav className="w-full mx-auto px-4 sm:px-6 lg:px-8 container">
+        <nav className="w-full mx-auto px-4  container">
           <div className="flex items-center justify-between md:justify-between h-16">
             <div className="flex items-center">
-              <div className="md:hidden mr-1">
+              <div className="md:hidden mr-2 flex">
                 <button
-                  className="inline-flex items-center justify-center p-2 rounded-md text-slate-800 hover:text-slate-800 focus:outline-none"
+                  className=" text-slate-800 hover:text-slate-800 focus:outline-none"
                   onClick={handleOpen}
                 >
                   {isOpen ? <FaTimes /> : <FaBars />}
@@ -27,7 +27,7 @@ function Navbar() {
               </div>
               <div className="flex">
                 <Link to={"/"}>
-                  <h1 className="text-slate-800 font-semibold text-2xl">
+                  <h1 className="text-slate-800 font-bold text-2xl">
                     News
                   </h1>
                 </Link>
@@ -44,8 +44,10 @@ function Navbar() {
           </div>
         </nav>
         {isOpen && (
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-yellow-300 md:hidden block">
-            <NavItem />
+          <div className="  bg-yellow-500 md:hidden absolute w-full  z-10">
+            <div className="px-4 pt-2 pb-3 space-y-1 container mx-auto">
+              <NavItem onClick={handleOpen}/>
+            </div>
           </div>
         )}
       </header>
