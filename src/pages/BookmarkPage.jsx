@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import NewsList from "../components/news card/NewsList";
 import NewsWrapper from "../components/news card/NewsWrapper";
 import Title from "../components/text/Title";
-import PageWrapper from "../components/wrapper/pagewrapper";
+import PageWrapper from "../components/wrapper/PageWrapper";
+import Description from "../components/text/Description";
 function BookmarkPage() {
   // Updated to use the news reducer for bookmarked news
   const bookmarkedNews = useSelector((state) => state.news.bookmarkedNews);
@@ -12,18 +13,16 @@ function BookmarkPage() {
   const reversedBookmarkedNews = [...bookmarkedNews].reverse();
 
   return (
-   <PageWrapper>
+    <PageWrapper>
       <Title>Bookmarked News</Title>
       {bookmarkedNews.length === 0 ? (
-        <div className="text-center flex items-center justify-center my-32 font-semibold">
-          Ooops,Belum ada berita yang disimpan
-        </div>
+        <Description>Oops, Belum ada berita yang disimpan</Description>
       ) : (
         <NewsWrapper>
           <NewsList news={reversedBookmarkedNews} />
         </NewsWrapper>
       )}
-      </PageWrapper>
+    </PageWrapper>
   );
 }
 

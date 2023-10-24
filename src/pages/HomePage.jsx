@@ -4,7 +4,7 @@ import Loading from "../components/loading/Loading";
 import NewsList from "../components/news card/NewsList";
 import NewsWrapper from "../components/news card/NewsWrapper";
 import Title from "../components/text/Title";
-import PageWrapper from "../components/wrapper/pagewrapper";
+import PageWrapper from "../components/wrapper/PageWrapper";
 function HomePage() {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

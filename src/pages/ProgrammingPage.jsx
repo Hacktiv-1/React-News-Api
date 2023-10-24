@@ -5,7 +5,7 @@ import Loading from "../components/loading/Loading";
 import NewsList from "../components/news card/NewsList";
 import NewsWrapper from "../components/news card/NewsWrapper";
 import Title from "../components/text/Title";
-import PageWrapper from "../components/wrapper/pagewrapper";
+import PageWrapper from "../components/wrapper/PageWrapper";
 function ProgrammingPage() {
   const keyword = "Programming";
   const [news, setNews] = useState([]);
@@ -13,7 +13,7 @@ function ProgrammingPage() {
   const endpoint = getNewsEndpointForLastMonth(keyword, apiKey);
 
   const fetchData = async () => {
-    setIsLoading(true); 
+    setIsLoading(true);
     try {
       const res = await fetch(endpoint);
       const data = await res.json();
@@ -21,7 +21,7 @@ function ProgrammingPage() {
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
-      setIsLoading(false); 
+      setIsLoading(false);
     }
   };
 
@@ -31,15 +31,15 @@ function ProgrammingPage() {
 
   return (
     <>
-    <PageWrapper>
-      <Title>Programming News</Title>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <NewsWrapper>
-          <NewsList news={news} />
-        </NewsWrapper>
-      )}
+      <PageWrapper>
+        <Title>Programming News</Title>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <NewsWrapper>
+            <NewsList news={news} />
+          </NewsWrapper>
+        )}
       </PageWrapper>
     </>
   );
