@@ -15,7 +15,7 @@ function BookmarkPage() {
       <h1 className="text-2xl font-semibold p-4">Daftar Bookmark:</h1>
       {bookmarkedNews.length === 0 ? (
         <div className="text-center flex items-center justify-center my-32 font-semibold">
-          There is bookmarked news
+          Ooops,Belum ada berita yang disimpan
         </div>
       ) : (
         <NewsWrapper>
