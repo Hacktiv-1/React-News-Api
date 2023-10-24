@@ -3,7 +3,8 @@ import { apiKey } from "../utils/apiKey";
 import Loading from "../components/loading/Loading";
 import NewsList from "../components/news card/NewsList";
 import NewsWrapper from "../components/news card/NewsWrapper";
-
+import Title from "../components/text/Title";
+import PageWrapper from "../components/wrapper/pagewrapper";
 function HomePage() {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -28,6 +29,8 @@ function HomePage() {
 
   return (
     <>
+    <PageWrapper>
+      <Title>Indonesia News</Title>
       {isLoading ? (
         <Loading />
       ) : (
@@ -35,6 +38,7 @@ function HomePage() {
           <NewsList news={news} />
         </NewsWrapper>
       )}
+      </PageWrapper>
     </>
   );
 }

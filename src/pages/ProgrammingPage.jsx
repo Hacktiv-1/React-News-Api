@@ -4,6 +4,8 @@ import { getNewsEndpointForLastMonth } from "../utils/formatDateApi";
 import Loading from "../components/loading/Loading";
 import NewsList from "../components/news card/NewsList";
 import NewsWrapper from "../components/news card/NewsWrapper";
+import Title from "../components/text/Title";
+import PageWrapper from "../components/wrapper/pagewrapper";
 function ProgrammingPage() {
   const keyword = "Programming";
   const [news, setNews] = useState([]);
@@ -29,6 +31,8 @@ function ProgrammingPage() {
 
   return (
     <>
+    <PageWrapper>
+      <Title>Programming News</Title>
       {isLoading ? (
         <Loading />
       ) : (
@@ -36,6 +40,7 @@ function ProgrammingPage() {
           <NewsList news={news} />
         </NewsWrapper>
       )}
+      </PageWrapper>
     </>
   );
 }

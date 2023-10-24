@@ -4,6 +4,8 @@ import { apiKey } from "../utils/apiKey";
 import Loading from "../components/loading/Loading";
 import NewsList from "../components/news card/NewsList";
 import NewsWrapper from "../components/news card/NewsWrapper";
+import Title from "../components/text/Title";
+import PageWrapper from "../components/wrapper/pagewrapper";
 
 function CovidPage() {
   const keyword = "covid";
@@ -30,6 +32,8 @@ function CovidPage() {
 
   return (
     <>
+    <PageWrapper>
+    <Title>Covid News</Title>
       {isLoading ? (
         <Loading />
       ) : (
@@ -37,7 +41,9 @@ function CovidPage() {
           <NewsList news={news} />
         </NewsWrapper>
       )}
+      </PageWrapper>
     </>
+    
   );
 }
 

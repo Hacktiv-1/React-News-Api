@@ -5,6 +5,8 @@ import { getNewsEndpointForLastMonth } from "../utils/formatDateApi";
 import Loading from "../components/loading/Loading";
 import NewsWrapper from "../components/news card/NewsWrapper";
 import NewsList from "../components/news card/NewsList";
+import PageWrapper from "../components/wrapper/pagewrapper";
+import Title from "../components/text/Title";
 
 function SearchPage() {
   let { keyword } = useParams();
@@ -31,9 +33,8 @@ function SearchPage() {
 
   return (
     <>
-      <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-semibold">Pencarian untuk : {keyword}</h1>
-      </div>
+     <PageWrapper>
+       <Title>Pencarian untuk : {keyword}</Title>
       {isLoading ? (
         <Loading />
       ) : (
@@ -49,6 +50,7 @@ function SearchPage() {
           )}
         </>
       )}
+      </PageWrapper>
     </>
   );
 }

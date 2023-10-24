@@ -6,7 +6,7 @@ import BookmarkPage from "./pages/BookmarkPage";
 import SearchPage from "./pages/SearchPage";
 import Navbar from "./components/navbar/Navbar";
 import ErrorPage from "./pages/ErrorPage";
-
+import Footer from "./components/footer/Footertext";
 function App() {
   return (
     <>
@@ -19,6 +19,7 @@ function App() {
         <Route path="/bookmark" element={<BookmarkPage />} />
         <Route path="/search/:keyword" element={<SearchPage />} />
       </Routes>
+      <Footer />
     </>
   );
 }
