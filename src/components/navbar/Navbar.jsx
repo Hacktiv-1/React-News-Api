@@ -6,9 +6,9 @@ import NavItem from "./NavItem";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
   const handleOpen = () => {
     setIsOpen(!isOpen);
-    // console.log(open);
   };
 
   return (
@@ -27,17 +27,15 @@ function Navbar() {
               </div>
               <div className="flex">
                 <Link to={"/"}>
-                  <h1 className="text-slate-800 font-semibold text-xl">News</h1>
+                  <h1 className="text-slate-800 font-semibold text-2xl">
+                    News
+                  </h1>
                 </Link>
               </div>
             </div>
             <div className="hidden md:block">
               <div className="ml-4 flex items-center space-x-4">
-                <NavItem
-                  style={
-                    "text-slate-800 hover:underline transition duration-500"
-                  }
-                />
+                <NavItem />
               </div>
             </div>
             <div className="sm:ml-10">
@@ -47,11 +45,7 @@ function Navbar() {
         </nav>
         {isOpen && (
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-yellow-300 md:hidden block">
-            <NavItem
-              style={
-                "text-slate-800 hover:underline transition duration-500 block"
-              }
-            />
+            <NavItem />
           </div>
         )}
       </header>

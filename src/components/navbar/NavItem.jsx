@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function NavItem({ style }) {
   const navItems = [
@@ -10,9 +10,17 @@ function NavItem({ style }) {
   return (
     <>
       {navItems.map((item, index) => (
-        <Link key={index} to={item.path} className={style}>
+        <NavLink
+          key={index}
+          to={item.path}
+          className={({ isActive }) =>
+            isActive
+              ? "p-2 text-white rounded-md bg-slate-800 font-bold block"
+              : "p-2 text-slate-800 rounded-md hover:bg-slate-800 hover:text-white transition duration-500 block font-semibold"
+          }
+        >
           {item.title}
-        </Link>
+        </NavLink>
       ))}
     </>
   );

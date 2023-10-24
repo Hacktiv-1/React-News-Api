@@ -7,12 +7,13 @@ function Search() {
 
   let navigate = useNavigate();
 
+  // take input value from search
   const handleInputChange = (e) => {
     setInput(e.target.value);
   };
 
+  // navigate to the search page with the input value
   const handleSearch = () => {
-    // navigate to the search page with the input value
     navigate(`/search/${input}`);
     setInput("");
   };
