@@ -13,11 +13,11 @@ function Navbar() {
 
   return (
     <>
-      <header className="bg-yellow-500">
-        <nav className="w-full mx-auto px-4  container">
-          <div className="flex items-center justify-between md:justify-between h-16">
+      <header className="bg-yellow-500 fixed w-full z-50">
+        <nav className="w-full mx-auto px-6 py-4 container">
+          <div className="flex items-center justify-between md:justify-between ">
             <div className="flex items-center">
-              <div className="lg:hidden mr-2 flex">
+              <div className="lg:hidden mr-2 pt-2 ">
                 <button
                   className=" text-slate-800 hover:text-slate-800 focus:outline-none"
                   onClick={handleOpen}
@@ -25,11 +25,10 @@ function Navbar() {
                   {isOpen ? <FaTimes /> : <FaBars />}
                 </button>
               </div>
-              <div className="flex">
-                <Link to={"/"}>
-                  <h1 className="text-slate-800 font-bold text-2xl">News</h1>
-                </Link>
-              </div>
+
+              <Link to={"/"}>
+                <h1 className="text-slate-800 font-bold text-2xl">News</h1>
+              </Link>
             </div>
             <div className="hidden lg:block">
               <div className="ml-4 flex items-center space-x-4">

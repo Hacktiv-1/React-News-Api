@@ -5,8 +5,9 @@ import { getNewsEndpointForLastMonth } from "../utils/formatDateApi";
 import Loading from "../components/loading/Loading";
 import NewsWrapper from "../components/news card/NewsWrapper";
 import NewsList from "../components/news card/NewsList";
-import PageWrapper from "../components/wrapper/pagewrapper";
 import Title from "../components/text/Title";
+import PageWrapper from "../components/wrapper/PageWrapper";
+import Description from "../components/text/Description";
 
 function SearchPage() {
   let { keyword } = useParams();
@@ -40,9 +41,7 @@ function SearchPage() {
       ) : (
         <>
           {news.length === 0 ? (
-            <div className="text-center flex items-center justify-center my-32 font-semibold">
-              There is no result
-            </div>
+            <Description>Oops, tidak ada hasil pencarian</Description>
           ) : (
             <NewsWrapper>
               <NewsList news={news} />
