@@ -7,6 +7,9 @@ function BookmarkPage() {
   // Updated to use the news reducer for bookmarked news
   const bookmarkedNews = useSelector((state) => state.news.bookmarkedNews);
 
+  // Reverse the order of bookmarkedNews
+  const reversedBookmarkedNews = [...bookmarkedNews].reverse();
+
   return (
     <div className="container mx-auto ">
       <h1 className="text-2xl font-semibold p-4">Daftar Bookmark:</h1>
@@ -16,7 +19,7 @@ function BookmarkPage() {
         </div>
       ) : (
         <NewsWrapper>
-          <NewsList news={bookmarkedNews} />
+          <NewsList news={reversedBookmarkedNews} />
         </NewsWrapper>
       )}
     </div>
